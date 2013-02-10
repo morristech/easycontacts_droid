@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory>
+        <EditTextPreference android:title="Номер Агента" android:key="AgentKey" android:summary="Вкаіть свій номер агента"/>
+        <EditTextPreference android:title="Ключ доступу" android:summary="Вкажіть свій ключ доступу" android:key="ServerKey"/>
+        <EditTextPreference android:summary="Вкажіть номер каналу" android:title="Номер  каналу" android:key="Channel"/>
+    </PreferenceCategory>
+    
+
+</PreferenceScreen>
