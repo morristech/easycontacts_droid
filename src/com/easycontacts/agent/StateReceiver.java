@@ -1,5 +1,7 @@
 package com.easycontacts.agent;
 
+import java.util.UUID;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -9,12 +11,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import java.util.UUID;
 
 public class StateReceiver extends BroadcastReceiver {
+	
   @Override
   public void onReceive(Context context, Intent intent) {
     Bundle extras = intent.getExtras();
@@ -22,8 +25,7 @@ public class StateReceiver extends BroadcastReceiver {
       String state = extras.getString(TelephonyManager.EXTRA_STATE);
       Log.w("DEBUG", state);
       if (state.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
-    	  
-    	SharedPreferences preferences = context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);  
+    	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);	
     	  
         String phoneNumber = extras.getString(TelephonyManager.EXTRA_INCOMING_NUMBER);
         String serverKey = preferences.getString("ServerKey", "");
@@ -32,7 +34,11 @@ public class StateReceiver extends BroadcastReceiver {
 
         UUID uuid = java.util.UUID.randomUUID();
         
-        Log.w("DEBUG", phoneNumber);
+        Log.w("DEBUG", ">>>>>>>>>>>" + phoneNumber);
+        Log.w("DEBUG", ">>>>>>>>>>>" + serverKey);
+        Log.w("DEBUG", ">>>>>>>>>>>" + myNumber);
+        Log.w("DEBUG", ">>>>>>>>>>>" + myAgentKey);
+        Log.w("DEBUG", ">>>>>>>>>>>" + uuid.toString());
 
         AsyncHttpClient client = new AsyncHttpClient();
         
@@ -47,7 +53,7 @@ public class StateReceiver extends BroadcastReceiver {
 				new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(String response) {
-            	Log.w("DEBUG", response);
+            	Log.w("DEBUG", ">>>>>>>>>>>" + response);
             }
         });
       }

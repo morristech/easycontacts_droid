@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    <PreferenceCategory>
-        <EditTextPreference android:title="Номер Агента" android:key="AgentKey" android:summary="Вкаіть свій номер агента"/>
-        <EditTextPreference android:title="Ключ доступу" android:summary="Вкажіть свій ключ доступу" android:key="ServerKey"/>
-        <EditTextPreference android:summary="Вкажіть номер каналу" android:title="Номер  каналу" android:key="Channel"/>
-    </PreferenceCategory>
+    <PreferenceCategory 
+    	android:title="Налаштування"
+        android:key="com.easycontacts.agent">
     
-
+        <EditTextPreference 
+        	android:title="Номер Агента" 
+        	android:key="AgentKey" 
+        	android:summary="Вкаіть свій номер агента"/>
+        
+        <EditTextPreference 
+        	android:title="Ключ доступу" 
+        	android:summary="Вкажіть свій ключ доступу" 
+        	android:key="ServerKey"/>
+        
+        <EditTextPreference 
+        	android:summary="Вкажіть номер каналу" 
+        	android:title="Номер каналу" 
+        	android:key="Channel"/>
+ 		
+ 		<ListPreference 
+			android:key="sendingMode"
+        	android:title="Надсилання повідомлень"
+        	android:summary="Вкажіть коли надсилати повідомлення на сервер"
+        	android:dialogTitle="Виберіть режим надсилання"
+        	android:defaultValue="1"
+        	android:entries="@array/prefDaysEntries"
+        	android:entryValues="@array/prefDaysValues" />            
+    
+    </PreferenceCategory>
 </PreferenceScreen>

@@ -1,24 +1,26 @@
 package com.easycontacts.agent;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.util.Log;
 import java.util.UUID;
-import com.loopj.android.http.*;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.View;
 import android.content.SharedPreferences;
 
 public class MainActivity extends PreferenceActivity {
 	SharedPreferences preferences;
 	
-	@SuppressWarnings("deprecation")
+//	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    addPreferencesFromResource(R.xml.preferences);
-	    setContentView(R.layout.main);
 	  }
 
 	public void doRequest(View view) {
@@ -42,4 +44,29 @@ public class MainActivity extends PreferenceActivity {
             }
         });
 	}
-}
+	
+/*	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,ContextMenu.ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+		getMenuInflater().inflate(R.menu.menu, menu);
+		menu.setHeaderTitle("Select an Option");
+		
+		MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.menu, menu);
+	}
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		switch(item.getItemId()) {
+			case R.id.menu_delete:
+				Toast.makeText(MainActivity.this,"Delete Operation is performed!",Toast.LENGTH_SHORT ).show();
+				return true;
+			case R.id.menu_copy:
+				Toast.makeText(MainActivity.this,"Copy Operation is performed!",Toast.LENGTH_SHORT ).show();
+				return true;
+			case R.id.menu_edit:
+				Toast.makeText(MainActivity.this,"Edit Operation is performed!",Toast.LENGTH_SHORT ).show();
+				return true;
+		}
+		return super.onContextItemSelected(item);
+	}	
+*/}
