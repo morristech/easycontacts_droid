@@ -17,7 +17,6 @@ public class MainActivity extends PreferenceActivity {
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    addPreferencesFromResource(R.xml.preferences);
-	    setContentView(R.layout.main);
 	  }
 
 	public void doRequest(View view) {
