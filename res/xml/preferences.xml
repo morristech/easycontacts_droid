@@ -7,11 +7,11 @@
         <EditTextPreference 
         	android:title="Номер Агента" 
         	android:key="AgentKey" 
-        	android:summary="Вкаіть свій номер агента"/>
+        	android:summary="Вкажіть свій номер агента"/>
         
         <EditTextPreference 
         	android:title="Ключ доступу" 
-        	android:summary="Вкажіть свій ключ доступу" 
+        	android:summary="Вкажіть свій ключ доступу до сервера" 
         	android:key="ServerKey"/>
         
         <EditTextPreference 

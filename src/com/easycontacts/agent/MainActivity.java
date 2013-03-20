@@ -1,5 +1,9 @@
 package com.easycontacts.agent;
 
+import android.os.Bundle;
+import android.view.View;
+import android.util.Log;
+
 import java.util.UUID;
 
 import com.loopj.android.http.AsyncHttpClient;
