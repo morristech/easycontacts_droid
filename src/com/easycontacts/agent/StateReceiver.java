@@ -1,6 +1,7 @@
 package com.easycontacts.agent;
 
 import java.util.UUID;
+import java.util.Calendar;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -26,6 +27,20 @@ public class StateReceiver extends BroadcastReceiver {
       Log.w("DEBUG", state);
       if (state.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
     	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);	
+    	  
+    	String sendingMode = preferences.getString("sendingMode", "1");
+    	
+    	if (sendingMode.equals("1")) {
+    		return;
+    	}  
+
+    	if (sendingMode.equals("3")) {
+    		int dow = Calendar.getInstance()
+    			.get(Calendar.DAY_OF_WEEK);
+	    	if (dow == 0 || dow == 6) {
+	    		return;
+	    	}  
+    	}  
     	  
         String phoneNumber = extras.getString(TelephonyManager.EXTRA_INCOMING_NUMBER);
         String serverKey = preferences.getString("ServerKey", "");
